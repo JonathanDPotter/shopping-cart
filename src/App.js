@@ -1,9 +1,8 @@
-import './style.scss';
+import "./style.scss";
+import Items from "./components/Items.js";
 
 function App() {
-  return (
-    <h1>HELLO</h1>
-  );
+  return <Items />;
 }
 
 export default App;

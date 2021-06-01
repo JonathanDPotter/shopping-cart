@@ -1,0 +1,77 @@
+{
+  "items": [
+    {
+      "brand": "Craftsman",
+      "name": "105-Piece Standard (SAE) and Metric Combination Gunmetal Chrome Mechanics Tool Set",
+      "itemNumber": 2523447,
+      "description": [
+        "MINIMAL ARC SWING: 120 Tooth Ratchets Produce a 3 Degree Arc Swing For High Access Performance",
+        "CONVENIENT: Large Socket Markings for Quick Size Identification",
+        "INCREASED TORQUE: Long Panel Combination Wrenches for Additional Leverage"
+      ],
+      "price": 139.00,
+      "image": "https://jpsiteassets.s3.us-east-2.amazonaws.com/images/img2523447.png"
+    },
+    {
+      "brand": "Gearwrench",
+      "name": "7-PC Reversible Ratcheting Combination Wrench Set SAE with Tool Roll",
+      "itemNumber": 2410678,
+      "description": [
+        "15 Degree offset offers increased clearance",
+        "Flush mounted reversing lever improves access",
+        "72 Teeth ratcheting box end needs as little as 5 degree to move fasteners versus 30 degree for standard box end wrenches"
+      ],
+      "price": 91.66,
+      "image": "https://jpsiteassets.s3.us-east-2.amazonaws.com/images/img2410678.png"
+    },
+    {
+      "brand": "Kobalt",
+      "name": "10-Piece Household Tool Set",
+      "itemNumber": 464642,
+      "description": [
+        "Set includes 9 commonly used pliers and 1 adj. wrench",
+        "Chrome nickel steel pliers",
+        "Chrome vanadium steel wrench and locking pliers"
+      ],
+      "price": 43.98,
+      "image": "https://jpsiteassets.s3.us-east-2.amazonaws.com/images/img464642.png"
+    },
+    {
+      "brand": "Craftsman",
+      "name": "215-Piece Standard (SAE) and Metric Combination Polished Chrome Mechanics Tool Set",
+      "itemNumber": 2523445,
+      "description": [
+        "MINIMAL ARC SWING: 72 Tooth 1/4-in and 3/8-in Drive Ratchets Produce a 5 Degree Arc Swing, Ideal Balance Between Access and...",
+        "VERSATILE: Comprehensive Set of 1/4-in and 3/8-in Drive Sockets and Drive Tool Accessories", 
+        "ALLOWS FOR EASY TOOL STORAGE: Large Portable Metal Tool Box with Ball-Bearing Drawers"
+      ],
+      "price": 119.00,
+      "image": "https://jpsiteassets.s3.us-east-2.amazonaws.com/images/img2523445.png"
+    },
+    {
+      "brand": "Kobalt",
+      "name": "100-Piece Household Tool Set with Hard Case",
+      "itemNumber": 856861,
+      "description": [
+        "Our Pro90 ratchet has a 90-tooth gear that delivers a 4Â° arc swing and offers improved mobility in tight spaces",
+        "Stored in a 4-drawer blow-molded tool chest for easy storage and transportation",
+        "Sockets and wrenches are constructed from chrome vanadium steel and heat treated for strength and durability"
+      ],
+      "price": 179.00,
+      "image": "https://jpsiteassets.s3.us-east-2.amazonaws.com/images/img856861.png"
+    },
+    {
+      "brand": "Fleming Supply",
+      "name": "Tool Kit- 132 Heat-Treated with Carrying Case- Essential Steel Hand Tool and Basic Repair Set for Apartments, Dorm, by Fleming Supply",
+      "itemNumber": 3651196,
+      "description": [
+       " Set Includes: 16 Hex Keys, 20 Driver Bits with Holder, 2 Spring Clips, 6-in Long Nose Pliers, 6-in Adjustable Wrench, 8 oz, Claw Hammer, Utility Knife, Spirit Level, Tape Measure, 6 Precision Screwdrivers and 80 Fasteners with Box",
+       "CARRYING CASE INCLUDED- This tool set comes with a durable, hard plastic case with carrying handles, The case opens wide for easy tool retrieval, The case is great for keeping tools in your car, truck or RV to for jobs on the go",
+       "QUALITY CONSTRUCTION- Each tool and bit is made of heat-treated steel making them durable enough to stand up to daily use"
+      ],
+      "price": 58.99,
+      "image": "https://jpsiteassets.s3.us-east-2.amazonaws.com/images/img3651196.png"
+    }
+
+  ]
+}
