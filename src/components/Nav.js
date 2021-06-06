@@ -11,6 +11,12 @@ const Nav = (props) => {
           <Link to="/items">
             <li className="link">Shop</li>
           </Link>
+          <Link to="/cart">
+            <li className="link">
+        {props.numItemsInCart}
+        <i class="fas fa-shopping-cart"></i>
+            </li>
+          </Link>
         </Router>
       </ul>
     </div>
