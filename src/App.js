@@ -7,10 +7,25 @@ import Nav from "./components/Nav.js";
 import Cart from "./components/Cart.js";
 
 const App = () => {
-  const [numItemsInCart, addItem] = useState(0);
+  const [numItemsInCart, addOrRemoveItem] = useState(0);
+  const [itemsInCart, addItem] = useState([]);
+  const [itemTotals, changeTotal] = useState([]);
+
   const addToCart = (event) => {
     const target = event.target.parentNode;
-    addItem(numItemsInCart + 1);
+    const { vin } = target.dataset;
+    addOrRemoveItem(numItemsInCart + 1);
+
+    if (itemsInCart.includes(vin)) {
+      const index = itemsInCart.indexOf(vin);
+      changeTotal(itemTotals.splice(index, 1, itemTotals[index] + 1));
+    } else {
+      addItem([...itemsInCart, vin]);
+      changeTotal([...itemTotals, 1]);
+    }
+
+    console.log(itemsInCart);
+    console.log(itemTotals);
   };
 
   return (
