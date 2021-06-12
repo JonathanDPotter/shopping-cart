@@ -19,9 +19,16 @@ const Items = (props) => {
               <li>{obj.description[1]}</li>
               <li>{obj.description[2]}</li>
             </ul>
-            <button onClick={props.addToCart}>
-              add to cart <i className="fas fa-cart-plus"></i>
-            </button>
+            <div id="qty">
+              <label htmlFor="quantity">qty</label>
+              <input
+                type="number"
+                name="quantity"
+                id="quantity-input"
+                placeholder="1"
+              />
+            </div>
+            <button onClick={props.addToCart}>add to cart</button>
           </div>
         );
       })}
