@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style.scss";
 import Items from "./components/Items.js";
@@ -6,49 +6,66 @@ import Home from "./components/Home.js";
 import Nav from "./components/Nav.js";
 import Cart from "./components/Cart.js";
 
-const App = () => {
-  const [numItemsInCart, addOrRemoveItem] = useState(0);
-  const [itemsInCart, addItem] = useState({});
-  const [totalPrice, adjustTotal] = useState(0);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      numItemsInCart: 0,
+      itemsInCart: {},
+      totalPrice: 0,
+    };
+  }
 
-  const addToCart = (event) => {
+  addToCart = (event) => {
     event.preventDefault();
+
     const target = event.target.parentNode;
     const { vin, price } = target.dataset;
     const number = parseInt(target.quantity.value);
-    addOrRemoveItem(numItemsInCart + number);
 
-    if (itemsInCart.hasOwnProperty(vin)) {
-      addItem({ ...itemsInCart, [vin]: itemsInCart[vin] + number });
-      console.log(itemsInCart);
+    this.setState({ numItemsInCart: this.state.numItemsInCart + number });
+
+    if (this.state.itemsInCart.hasOwnProperty(vin)) {
+      this.setState({
+        itemsInCart: {
+          ...this.state.itemsInCart,
+          [vin]: this.state.itemsInCart[vin] + number,
+        },
+      });
     } else {
-      addItem({ ...itemsInCart, [vin]: number });
+      this.setState({
+        itemsInCart: { ...this.state.itemsInCart, [vin]: number },
+      });
     }
-    adjustTotal(totalPrice + (parseFloat(price) * number));
+    this.setState({
+      totalPrice: this.state.totalPrice + parseFloat(price) * number,
+    });
   };
 
-  return (
-    <div>
-      <Nav
-        numItemsInCart={numItemsInCart}
-        totalPrice={totalPrice}
-        className="nav"
-      />
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/items">
-            <Items className="items" addToCart={addToCart} />
-          </Route>
-          <Route exact path="/cart">
-            <Cart className="cart" />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <Nav
+          numItemsInCart={this.state.numItemsInCart}
+          totalPrice={this.state.totalPrice}
+          className="nav"
+        />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/items">
+              <Items addToCart={this.addToCart} />
+            </Route>
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+}
 
 export default App;

@@ -11,6 +11,9 @@ body {
 }
 
 .nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: rgb(154, 180, 228);
   height: 3rem;
   line-height: 3rem;
@@ -40,46 +43,56 @@ body {
 }
 
 .items {
+  margin-top: 3rem;
   width: 100vw;
   overflow-x: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  .item {
+    width: 30rem;
+    max-width: 45vw;
+    margin: 2vw auto;
+    display: flex;
+    flex-direction: column;
+    .image-name {
+      margin-bottom: 2rem;
+
+      img {
+        height: 12rem;
+        width: 12rem;
+        float: left;
+      }
+    }
+    ul {
+      margin: 2rem;
+      list-style-type: disc;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-left: 1rem;
+      input {
+        width: 2rem;
+      }
+      button {
+        width: 33%;
+        height: 1.5rem;
+        margin: 0 auto;
+        border-radius: 1.5rem;
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
-.item {
-  width: 30rem;
-  max-width: 45vw;
-  margin: 2vw auto;
+.cart {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  .image-name {
-    margin-bottom: 2rem;
-
-    img {
-      height: 12rem;
-      width: 12rem;
-      float: left;
-    }
-  }
-  ul {
-    margin: 2rem;
-    list-style-type: disc;
-  }
-
-  form {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-left: 1rem;
-    input {
-      width: 2rem;
-    }
-    button {
-      width: 33%;
-      height: 1.5rem;
-      margin: 0 auto;
-      border-radius: 1.5rem;
-      font-size: 1rem;
-    }
-  }
+  justify-content: center;
+  align-items: center;
 }
