@@ -19,7 +19,7 @@ const Items = (props) => {
               <li>{obj.description[1]}</li>
               <li>{obj.description[2]}</li>
             </ul>
-            <form id="qty" data-vin={obj.itemNumber}>
+            <form id="qty" data-vin={obj.itemNumber} data-price={obj.price}>
               <label htmlFor="quantity">qty</label>
               <input
                 type="number"

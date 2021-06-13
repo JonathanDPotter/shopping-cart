@@ -13,9 +13,9 @@ const Nav = (props) => {
           </Link>
           <Link to="/cart">
             <li className="link">
-        {props.numItemsInCart}
+              <span className="total-items">{props.numItemsInCart}</span>
               <i className="fas fa-shopping-cart"></i>
-              {props.itemsInCart}
+              <span className="total-price">${props.totalPrice}</span>
             </li>
           </Link>
         </Router>

@@ -9,26 +9,29 @@ import Cart from "./components/Cart.js";
 const App = () => {
   const [numItemsInCart, addOrRemoveItem] = useState(0);
   const [itemsInCart, addItem] = useState({});
+  const [totalPrice, adjustTotal] = useState(0);
 
   const addToCart = (event) => {
     event.preventDefault();
     const target = event.target.parentNode;
-    const { vin } = target.dataset;
-    const number = target.quantity.value;
-    addOrRemoveItem(numItemsInCart + parseInt(number));
+    const { vin, price } = target.dataset;
+    const number = parseInt(target.quantity.value);
+    addOrRemoveItem(numItemsInCart + number);
 
     if (itemsInCart.hasOwnProperty(vin)) {
-      addItem({ ...itemsInCart, [vin]: itemsInCart[vin] + parseInt(number) });
+      addItem({ ...itemsInCart, [vin]: itemsInCart[vin] + number });
       console.log(itemsInCart);
     } else {
-      addItem({ ...itemsInCart, [vin]: parseInt(number) });
+      addItem({ ...itemsInCart, [vin]: number });
     }
+    adjustTotal(totalPrice + (parseFloat(price) * number));
   };
 
   return (
     <div>
       <Nav
         numItemsInCart={numItemsInCart}
+        totalPrice={totalPrice}
         className="nav"
       />
       <Router>
