@@ -11,22 +11,26 @@ const App = () => {
   const [itemsInCart, addItem] = useState({});
 
   const addToCart = (event) => {
+    event.preventDefault();
     const target = event.target.parentNode;
     const { vin } = target.dataset;
-    addOrRemoveItem(numItemsInCart + 1);
+    const number = target.quantity.value;
+    addOrRemoveItem(numItemsInCart + parseInt(number));
 
     if (itemsInCart.hasOwnProperty(vin)) {
-      async () => addItem({ ...itemsInCart, [vin]: itemsInCart[vin] + 1 });
+      addItem({ ...itemsInCart, [vin]: itemsInCart[vin] + parseInt(number) });
       console.log(itemsInCart);
-
     } else {
-      addItem({ ...itemsInCart, [vin]: 1 });
+      addItem({ ...itemsInCart, [vin]: parseInt(number) });
     }
   };
 
   return (
     <div>
-      <Nav numItemsInCart={numItemsInCart} className="nav" />
+      <Nav
+        numItemsInCart={numItemsInCart}
+        className="nav"
+      />
       <Router>
         <Switch>
           <Route exact path="/">

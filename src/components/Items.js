@@ -5,7 +5,7 @@ const Items = (props) => {
     <div className="items">
       {items.map((obj) => {
         return (
-          <div className="item" key={obj.itemNumber} data-vin={obj.itemNumber}>
+          <div className="item" key={obj.itemNumber}>
             <div className="image-name">
               <img src={obj.image} alt="tool set" />
               <h1>${obj.price}</h1>
@@ -19,16 +19,20 @@ const Items = (props) => {
               <li>{obj.description[1]}</li>
               <li>{obj.description[2]}</li>
             </ul>
-            <div id="qty">
+            <form id="qty" data-vin={obj.itemNumber}>
               <label htmlFor="quantity">qty</label>
               <input
                 type="number"
                 name="quantity"
                 id="quantity-input"
-                placeholder="1"
+                defaultValue="1"
+                min="1"
+                max="10"
               />
-            </div>
-            <button onClick={props.addToCart}>add to cart</button>
+              <button type="submit" onClick={props.addToCart}>
+                add to cart
+              </button>
+            </form>
           </div>
         );
       })}

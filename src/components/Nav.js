@@ -14,7 +14,8 @@ const Nav = (props) => {
           <Link to="/cart">
             <li className="link">
         {props.numItemsInCart}
-        <i className="fas fa-shopping-cart"></i>
+              <i className="fas fa-shopping-cart"></i>
+              {props.itemsInCart}
             </li>
           </Link>
         </Router>
