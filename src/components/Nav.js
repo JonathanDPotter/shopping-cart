@@ -4,7 +4,6 @@ const Nav = (props) => {
   return (
     <div className="nav">
       <ul className="nav-ul">
-        <Router forceRefresh={true}>
           <Link to="/">
             <li className="link">Home</li>
           </Link>
@@ -18,7 +17,6 @@ const Nav = (props) => {
               <span className="total-price">${props.totalPrice}</span>
             </li>
           </Link>
-        </Router>
       </ul>
     </div>
   );

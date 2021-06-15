@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style.scss";
 import Items from "./components/Items.js";
@@ -45,12 +45,12 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Router>
         <Nav
           numItemsInCart={this.state.numItemsInCart}
           totalPrice={this.state.totalPrice}
           className="nav"
         />
-        <Router>
           <Switch>
             <Route exact path="/">
               <Home />
