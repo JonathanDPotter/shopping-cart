@@ -59,7 +59,7 @@ class App extends Component {
               <Items addToCart={this.addToCart} />
             </Route>
             <Route exact path="/cart">
-              <Cart />
+              <Cart itemsInCart={this.state.itemsInCart}/>
             </Route>
           </Switch>
         </Router>
