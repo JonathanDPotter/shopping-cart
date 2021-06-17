@@ -6,7 +6,6 @@ const Cart = (props) => {
     itemsArray.push([key, value]);
   }
 
-
   return (
     <div className="cart">
       {itemsArray.map((item) => {
@@ -14,10 +13,23 @@ const Cart = (props) => {
           (obj) => obj.itemNumber === parseInt(item[0])
         );
         return (
-          <div className="cart-item" key={currItem.itemNumber}>
+          <div
+            className="cart-item"
+            key={currItem.itemNumber}
+            data-vin={currItem.itemNumber}
+          >
+            <img src={currItem.image} alt="tool set" />
             <h1>{currItem.name}</h1>
-            <p>{item[1]}</p>
-            <button>remove</button>
+            <div className="icon-box" data-type="decrement" onClick={props.changeCart}>
+              <svg className="fas fa-caret-left"></svg>
+            </div>
+            <span>{item[1]}</span>
+            <div className="icon-box" data-type="increment" onClick={props.changeCart}>
+              <svg className="fas fa-caret-right"></svg>
+            </div>
+            <div className="icon-box" data-type="remove" onClick={props.changeCart}>
+              <svg className="fas fa-times"></svg>
+            </div>
           </div>
         );
       })}

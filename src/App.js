@@ -42,15 +42,22 @@ class App extends Component {
     });
   };
 
+  changeCart = (event) => {
+    const { vin } = event.target.parentNode.dataset;
+    const { type } = event.target.dataset;
+    
+    console.log(vin, type);
+  }
+
   render() {
     return (
       <div>
         <Router>
-        <Nav
-          numItemsInCart={this.state.numItemsInCart}
-          totalPrice={this.state.totalPrice}
-          className="nav"
-        />
+          <Nav
+            numItemsInCart={this.state.numItemsInCart}
+            totalPrice={this.state.totalPrice}
+            className="nav"
+          />
           <Switch>
             <Route exact path="/">
               <Home />
@@ -59,7 +66,13 @@ class App extends Component {
               <Items addToCart={this.addToCart} />
             </Route>
             <Route exact path="/cart">
-              <Cart itemsInCart={this.state.itemsInCart}/>
+              <Cart
+                itemsInCart={this.state.itemsInCart}
+                increment={this.increment}
+                decrement={this.decrement}
+                remove={this.remove}
+                changeCart={this.changeCart}
+              />
             </Route>
           </Switch>
         </Router>

@@ -3,6 +3,7 @@
   top: 0;
   padding: 0;
   display: border-box;
+  overflow-x: none;
 }
 
 body {
@@ -89,10 +90,27 @@ body {
 }
 
 .cart {
-  height: 100vh;
+  margin-top: 3rem;
+  height: 100%;
   width: 100vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+
+  h1 {
+    font-size: 1rem;
+    width: 33vw;
+  }
+
+  .icon-box {
+    display: inline-block;
+    font-size: 1rem;
+    margin: .5rem;
+    svg {
+      pointer-events: none;
+    }
+  }
+
+  img {
+    width: 30vw;
+  }
 }
