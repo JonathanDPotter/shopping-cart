@@ -17,9 +17,11 @@ const Cart = (props) => {
             className="cart-item"
             key={currItem.itemNumber}
             data-vin={currItem.itemNumber}
+            data-price={currItem.price}
           >
             <img src={currItem.image} alt="tool set" />
             <h1>{currItem.name}</h1>
+            <p>${currItem.price}</p>
             <div className="icon-box" data-type="decrement" onClick={props.changeCart}>
               <svg className="fas fa-caret-left"></svg>
             </div>

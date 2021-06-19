@@ -43,11 +43,50 @@ class App extends Component {
   };
 
   changeCart = (event) => {
-    const { vin } = event.target.parentNode.dataset;
+    const { vin, price } = event.target.parentNode.dataset;
     const { type } = event.target.dataset;
-    
-    console.log(vin, type);
-  }
+
+    switch (type) {
+      case "increment":
+        this.setState({
+          numItemsInCart: this.state.numItemsInCart + 1,
+          itemsInCart: {
+            ...this.state.itemsInCart,
+            [vin]: this.state.itemsInCart[vin] + 1,
+          },
+          totalPrice: this.state.totalPrice + parseFloat(price),
+        });
+        break;
+      case "decrement":
+        if (this.state.itemsInCart[vin] === 1) {
+          this.removeFromCart(vin, price);
+        } else {
+          this.setState({
+            numItemsInCart: this.state.numItemsInCart - 1,
+            itemsInCart: {
+              ...this.state.itemsInCart,
+              [vin]: this.state.itemsInCart[vin] - 1,
+            },
+            totalPrice: this.state.totalPrice - parseFloat(price),
+          });
+        }
+        break;
+      case "remove":
+        this.removeFromCart(vin, price);
+        break;
+      default:
+        console.log("error, bad type");
+    }
+  };
+
+  removeFromCart = (vin, price) => {
+    const num = parseInt(this.state.itemsInCart[vin])
+    this.setState({
+      numItemsInCart: this.state.numItemsInCart - num,
+      totalPrice: this.state.totalPrice - (price * num)
+    })
+    delete this.state.itemsInCart[vin];
+  };
 
   render() {
     return (
@@ -68,9 +107,6 @@ class App extends Component {
             <Route exact path="/cart">
               <Cart
                 itemsInCart={this.state.itemsInCart}
-                increment={this.increment}
-                decrement={this.decrement}
-                remove={this.remove}
                 changeCart={this.changeCart}
               />
             </Route>
