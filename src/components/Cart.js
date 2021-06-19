@@ -8,6 +8,7 @@ const Cart = (props) => {
 
   return (
     <div className="cart">
+      {props.numItemsInCart === 0 && <h1>Cart is Empty</h1>}
       {itemsArray.map((item) => {
         const [currItem] = items.filter(
           (obj) => obj.itemNumber === parseInt(item[0])
@@ -21,20 +22,33 @@ const Cart = (props) => {
           >
             <img src={currItem.image} alt="tool set" />
             <h1>{currItem.name}</h1>
-            <p>${currItem.price}</p>
-            <div className="icon-box" data-type="decrement" onClick={props.changeCart}>
+            <p>${currItem.price / 100}</p>
+            <div
+              className="icon-box"
+              data-type="decrement"
+              onClick={props.changeCart}
+            >
               <svg className="fas fa-caret-left"></svg>
             </div>
             <span>{item[1]}</span>
-            <div className="icon-box" data-type="increment" onClick={props.changeCart}>
+            <div
+              className="icon-box"
+              data-type="increment"
+              onClick={props.changeCart}
+            >
               <svg className="fas fa-caret-right"></svg>
             </div>
-            <div className="icon-box" data-type="remove" onClick={props.changeCart}>
+            <div
+              className="icon-box"
+              data-type="remove"
+              onClick={props.changeCart}
+            >
               <svg className="fas fa-times"></svg>
             </div>
           </div>
         );
       })}
+      {props.numItemsInCart > 0 && <button>Checkout</button>}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const Items = (props) => {
           <div className="item" key={obj.itemNumber}>
             <div className="image-name">
               <img src={obj.image} alt="tool set" />
-              <h1>${obj.price}</h1>
+              <h1>${obj.price / 100}</h1>
               <h2>
                 {obj.brand} {obj.name}
               </h2>

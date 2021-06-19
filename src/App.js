@@ -10,8 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numItemsInCart: 0,
       itemsInCart: {},
+      numItemsInCart: 0,
       totalPrice: 0,
     };
   }
@@ -30,6 +30,7 @@ class App extends Component {
         itemsInCart: {
           ...this.state.itemsInCart,
           [vin]: this.state.itemsInCart[vin] + number,
+          price: price,
         },
       });
     } else {
@@ -38,7 +39,7 @@ class App extends Component {
       });
     }
     this.setState({
-      totalPrice: this.state.totalPrice + parseFloat(price) * number,
+      totalPrice: this.state.totalPrice + parseInt(price) * number,
     });
   };
 
@@ -54,7 +55,7 @@ class App extends Component {
             ...this.state.itemsInCart,
             [vin]: this.state.itemsInCart[vin] + 1,
           },
-          totalPrice: this.state.totalPrice + parseFloat(price),
+          totalPrice: this.state.totalPrice + parseInt(price),
         });
         break;
       case "decrement":
@@ -67,7 +68,7 @@ class App extends Component {
               ...this.state.itemsInCart,
               [vin]: this.state.itemsInCart[vin] - 1,
             },
-            totalPrice: this.state.totalPrice - parseFloat(price),
+            totalPrice: this.state.totalPrice - parseInt(price),
           });
         }
         break;
@@ -80,11 +81,11 @@ class App extends Component {
   };
 
   removeFromCart = (vin, price) => {
-    const num = parseInt(this.state.itemsInCart[vin])
+    const num = parseInt(this.state.itemsInCart[vin]);
     this.setState({
       numItemsInCart: this.state.numItemsInCart - num,
-      totalPrice: this.state.totalPrice - (price * num)
-    })
+      totalPrice: this.state.totalPrice - price * num,
+    });
     delete this.state.itemsInCart[vin];
   };
 
@@ -106,6 +107,7 @@ class App extends Component {
             </Route>
             <Route exact path="/cart">
               <Cart
+                numItemsInCart={this.state.numItemsInCart}
                 itemsInCart={this.state.itemsInCart}
                 changeCart={this.changeCart}
               />

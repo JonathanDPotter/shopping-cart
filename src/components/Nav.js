@@ -14,7 +14,7 @@ const Nav = (props) => {
           <li className="link">
             <span className="total-items">{props.numItemsInCart}</span>
             <i className="fas fa-shopping-cart"></i>
-            <span className="total-price">${props.totalPrice}</span>
+            <span className="total-price">${(props.totalPrice / 100).toFixed(2)}</span>
           </li>
         </Link>
       </ul>
